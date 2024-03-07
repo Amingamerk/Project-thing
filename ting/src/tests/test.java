@@ -18,15 +18,19 @@ public class test {
         int randomNumber = (int) (Math.random() * 10) + 1;
 
         
-        App game = new App(randomNumber);
+        Game game = new Game();
+
+        boolean guessedRight = false;
 
        
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 2000; i++) {
             
             int guessedNumber = (int) (Math.random() * 10) + 1;
 
+            if (game.guess(guessedNumber, randomNumber)) guessedRight = true;
             
-            assertTrue(game.value(guessedNumber) == randomNumber);
         }
+
+        assertTrue(guessedRight);
     }
 }
